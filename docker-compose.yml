@@ -1,0 +1,15 @@
+version: '3.8' 
+services:
+  web:
+    build: .
+    volumes:
+      - .:/app
+    ports:
+      - "3000:3000"
+    command: bin/rails server -b 0.0.0.0
+
+  tailwind:
+    build: .
+    volumes:
+      - .:/app
+    command: bin/rails tailwindcss:watch

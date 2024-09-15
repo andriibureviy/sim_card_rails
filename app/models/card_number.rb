@@ -1,3 +1,4 @@
 class CardNumber < ApplicationRecord
-  self.table_name ='numbers'
+  self.table_name ="numbers"
 end
+

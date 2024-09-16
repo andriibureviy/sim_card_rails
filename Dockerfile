@@ -19,7 +19,8 @@ RUN apk update -qq && apk add --no-cache \
     libc6-compat \
     libxml2-dev \
     libxslt-dev \
-    zlib-dev
+    zlib-dev \ 
+    bash
 
 ENV RAILS_ENV=development \
     BUNDLE_PATH=/gems \

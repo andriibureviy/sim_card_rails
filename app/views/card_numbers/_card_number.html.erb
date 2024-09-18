@@ -14,4 +14,16 @@
     <%= card_number.user_id %>
   </p>
 
+  <% if card_number.email.present? %>
+    <p class="my-5">
+      <strong class="block font-medium mb-1">Email:</strong>
+      <%= card_number.email %>
+    </p>
+  <% end %>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Platform:</strong>
+    <%= card_number.platforms.pluck(:text_code) %>
+  </p>
+
 </div>

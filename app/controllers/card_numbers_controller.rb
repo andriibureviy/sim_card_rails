@@ -2,7 +2,7 @@ class CardNumbersController < ApplicationController
   before_action :set_card_number, only: %i[ show edit update destroy ]
 
   def index
-    @card_numbers = CardNumber.all
+    @card_numbers = CardNumber.all.order(:created_at).reverse
   end
 
   def show

@@ -27,6 +27,11 @@
   </div>
 
   <div class="my-5">
+    <%= form.label :expire_at %>
+    <%= form.date_field :expire_at, class: "block shadow rounded-md border border-gray-400 outline-none px-3 py-2 mt-2 w-full" %>
+  </div>
+
+  <div class="my-5">
     <%= form.label :user_id %>
     <%= form.number_field :user_id, class: "block shadow rounded-md border border-gray-400 outline-none px-3 py-2 mt-2 w-full" %>
   </div>

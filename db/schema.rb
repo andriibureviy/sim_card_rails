@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2024_09_18_124630) do
+ActiveRecord::Schema[7.2].define(version: 2024_10_15_095247) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -19,6 +19,7 @@ ActiveRecord::Schema[7.2].define(version: 2024_09_18_124630) do
     t.integer "user_id"
     t.datetime "created_at", precision: nil
     t.string "email"
+    t.datetime "expire_at"
 
     t.unique_constraint ["number"], name: "numbers_number_key"
   end

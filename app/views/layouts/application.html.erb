@@ -16,6 +16,12 @@
     <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
+
+    <div class="flex justify-center mt-4">
+      <%= link_to "Users", users_path, class: "rounded-lg py-3 px-5 bg-green-100 inline-block font-medium" %>
+      <%= link_to "Telegram", telegrams_path, class: "ml-2 rounded-lg py-3 px-5 bg-blue-100 inline-block font-medium" %>
+      <%= link_to "Card Number", card_numbers_path, class: "ml-2 rounded-lg py-3 px-5 bg-red-100 inline-block font-medium" %>
+    </div>
   </head>
 
   <body>

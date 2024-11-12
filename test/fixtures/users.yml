@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  ads_power_profile_id: MyString
+  ads_power_sequence_id: MyString
+  notes: 
+  group_id: 
+  subgroup_id: 
+
+two:
+  name: MyString
+  ads_power_profile_id: MyString
+  ads_power_sequence_id: MyString
+  notes: 
+  group_id: 
+  subgroup_id: 

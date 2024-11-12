@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :telegrams
+  resources :users
   resources :card_numbers
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

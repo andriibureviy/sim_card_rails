@@ -60,6 +60,6 @@ class CardNumbersController < ApplicationController
   end
 
   def card_number_params
-    params.require(:card_number).permit(:number, :created_at, :expire_at, :user_id, :email, platform_ids: [])
+    params.require(:card_number).permit(:number, :created_at, :expire_at, :created_by_telegram_id, :email, platform_ids: [])
   end
 end

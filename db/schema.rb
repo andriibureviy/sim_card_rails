@@ -10,17 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2024_10_15_095247) do
+ActiveRecord::Schema[7.2].define(version: 2024_11_12_111544) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "numbers", id: :serial, force: :cascade do |t|
     t.string "number"
-    t.integer "user_id"
+    t.integer "created_by_telegram_id"
     t.datetime "created_at", precision: nil
     t.string "email"
     t.datetime "expire_at"
-
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_numbers_on_user_id"
     t.unique_constraint ["number"], name: "numbers_number_key"
   end
 
@@ -40,6 +41,30 @@ ActiveRecord::Schema[7.2].define(version: 2024_10_15_095247) do
     t.index ["text_code"], name: "index_platforms_on_text_code", unique: true
   end
 
+  create_table "telegrams", force: :cascade do |t|
+    t.string "name"
+    t.string "surname"
+    t.string "username"
+    t.string "phone"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_telegrams_on_user_id"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "name"
+    t.string "ads_power_profile_id"
+    t.string "ads_power_sequence_id"
+    t.jsonb "notes"
+    t.bigint "group_id"
+    t.bigint "subgroup_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_foreign_key "numbers", "users"
   add_foreign_key "numbers_platforms", "numbers"
   add_foreign_key "numbers_platforms", "platforms"
+  add_foreign_key "telegrams", "users"
 end

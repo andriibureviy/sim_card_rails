@@ -1,9 +1,13 @@
 class UsersController < ApplicationController
   before_action :set_user, only: %i[ show edit update destroy ]
 
-  # GET /users or /users.json
-  def index
-    @users = User.all
+
+    def index
+    if params[:sort] == 'notes'
+      @users = User.order(:notes).reverse
+    else
+      @users = User.all
+    end
   end
 
   # GET /users/1 or /users/1.json

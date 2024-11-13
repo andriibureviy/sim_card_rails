@@ -1,37 +1,28 @@
-<div id="<%= dom_id user %>">
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Name:</strong>
-    <%= user.name %>
+<div id="<%= dom_id user %>" class="bg-white rounded-lg p-6 mb-6">
+  <p class="mb-4">
+    <strong class="text-gray-700 block text-sm font-semibold mb-1">Name:</strong>
+    <span class="text-gray-900 text-base"><%= user.name %></span>
   </p>
 
-  <p class="my-5">
-    <strong class="block font-medium mb-1">User ID:</strong>
-    <%= user.id %>
+  <p class="mb-4">
+    <strong class="text-gray-700 block text-sm font-semibold mb-1">User ID:</strong>
+    <span class="text-gray-900 text-base"><%= user.id %></span>
   </p>
 
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Ads power profile:</strong>
-    <%= user.ads_power_profile_id %>
+  <p class="mb-4">
+    <strong class="text-gray-700 block text-sm font-semibold mb-1">Ads Power Profile:</strong>
+    <span class="text-gray-900 text-base"><%= user.ads_power_profile_id %></span>
   </p>
 
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Ads power sequence:</strong>
-    <%= user.ads_power_sequence_id %>
-  </p>
+  <% if user.card_number.present? %>
+    <p class="mb-4">
+      <strong class="text-gray-700 block text-sm font-semibold mb-1">Notes:</strong>
+      <span class="text-gray-900 text-base"><%= user.notes %></span>
+    </p>
 
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Notes:</strong>
-    <%= user.notes %>
-  </p>
-
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Group:</strong>
-    <%= user.group_id %>
-  </p>
-
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Subgroup:</strong>
-    <%= user.subgroup_id %>
-  </p>
-
+    <p class="mb-4">
+      <strong class="text-gray-700 block text-sm font-semibold mb-1">Number:</strong>
+      <span class="text-gray-900 text-base"><%= user.card_number.number %></span>
+    </p>
+  <% end %>
 </div>

@@ -1,12 +1,15 @@
 class UsersController < ApplicationController
   before_action :set_user, only: %i[ show edit update destroy ]
 
+  def index
+    @users = User.all
 
-    def index
+    if params[:query].present?
+      @users = User.search(params[:query])
+    end
+
     if params[:sort] == 'notes'
-      @users = User.order(:notes).reverse
-    else
-      @users = User.all
+      @users = @users.order(:notes).reverse
     end
   end
 

@@ -1,3 +1,4 @@
+<!-- app/views/users/index.html.erb -->
 <div class="w-full">
   <% if notice.present? %>
     <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
@@ -8,8 +9,12 @@
   <div class="flex justify-between items-center">
     <h1 class="font-bold text-4xl">Users</h1>
     <div class="flex space-x-3">
-      <%= link_to "New user", new_user_path, class: "rounded-lg py-3 px-5 bg-blue-600 text-white block font-medium" %>
-      <%= link_to "Show Users with Notes Banned", users_path(sort: 'notes'), class: "rounded-lg py-3 px-5 bg-yellow-500 text-white block font-medium" %>
+      <%= form_tag users_path, method: :get, class: 'flex space-x-2' do %>
+        <%= text_field_tag :query, params[:query], placeholder: 'Search by phone or ads power id', class: 'rounded-lg py-2 px-3 border' %>
+        <%= submit_tag 'Search', class: 'rounded-lg py-2 px-5 bg-blue-600 text-white font-medium' %>
+      <% end %>
+      <%= link_to "New user", new_user_path, class: "rounded-lg py-3 px-5 bg-blue-600 text-white font-medium" %>
+      <%= link_to "Show Users with Notes Banned", users_path(sort: 'notes'), class: "rounded-lg py-3 px-5 bg-yellow-500 text-white font-medium" %>
     </div>
   </div>
 
@@ -18,7 +23,7 @@
       <%= render user %>
       <p>
         <%= link_to "Show this user", user, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-        <%= link_to "Card Number", user.card_number, class: "ml-2 rounded-lg py-3 px-5 bg-red-100 inline-block font-medium" %>
+        <%= link_to "Card Number", user.card_number.number, class: "ml-2 rounded-lg py-3 px-5 bg-red-100 inline-block font-medium" if user.card_number %>
         <%= link_to "Telegram", user.telegram, class: "ml-2 rounded-lg py-3 px-5 bg-blue-100 inline-block font-medium" %>
       </p>
     <% end %>

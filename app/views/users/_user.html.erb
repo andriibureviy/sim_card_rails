@@ -22,11 +22,13 @@
   <% end %>
 
 
-  <% if user.proxy.raw.present? %>
-    <p class="mb-4">
-      <strong class="text-gray-700 block text-sm font-semibold mb-1">Proxy:</strong>
-      <span class="text-gray-900 text-base"><%= user.proxy.raw %></span>
-    </p>
+  <% if user.proxy.present? %>
+    <% if user.proxy.raw.present? %>
+      <p class="mb-4">
+        <strong class="text-gray-700 block text-sm font-semibold mb-1">Proxy:</strong>
+        <span class="text-gray-900 text-base"><%= user.proxy.raw %></span>
+      </p>
+    <% end %>
   <% end %>
 
 

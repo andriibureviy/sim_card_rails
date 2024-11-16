@@ -14,12 +14,23 @@
     <span class="text-gray-900 text-base"><%= user.ads_power_profile_id %></span>
   </p>
 
-  <% if user.card_number.present? %>
+  <% if user.notes.present? %>
     <p class="mb-4">
       <strong class="text-gray-700 block text-sm font-semibold mb-1">Notes:</strong>
       <span class="text-gray-900 text-base"><%= user.notes %></span>
     </p>
+  <% end %>
 
+
+  <% if user.proxy.raw.present? %>
+    <p class="mb-4">
+      <strong class="text-gray-700 block text-sm font-semibold mb-1">Proxy:</strong>
+      <span class="text-gray-900 text-base"><%= user.proxy.raw %></span>
+    </p>
+  <% end %>
+
+
+  <% if user.card_number.present? %>
     <p class="mb-4">
       <strong class="text-gray-700 block text-sm font-semibold mb-1">Number:</strong>
       <span class="text-gray-900 text-base"><%= user.card_number.number %></span>

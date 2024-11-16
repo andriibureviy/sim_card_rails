@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2024_11_12_111544) do
+ActiveRecord::Schema[7.2].define(version: 2024_11_16_010445) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -35,10 +35,21 @@ ActiveRecord::Schema[7.2].define(version: 2024_11_12_111544) do
 
   create_table "platforms", force: :cascade do |t|
     t.string "text_code", null: false
-    t.string "ref_code"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["text_code"], name: "index_platforms_on_text_code", unique: true
+  end
+
+  create_table "proxies", force: :cascade do |t|
+    t.string "ip"
+    t.integer "port"
+    t.string "username"
+    t.string "password"
+    t.string "raw"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_proxies_on_user_id"
   end
 
   create_table "telegrams", force: :cascade do |t|
@@ -49,6 +60,7 @@ ActiveRecord::Schema[7.2].define(version: 2024_11_12_111544) do
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "email"
     t.index ["user_id"], name: "index_telegrams_on_user_id"
   end
 
@@ -66,5 +78,6 @@ ActiveRecord::Schema[7.2].define(version: 2024_11_12_111544) do
   add_foreign_key "numbers", "users"
   add_foreign_key "numbers_platforms", "numbers"
   add_foreign_key "numbers_platforms", "platforms"
+  add_foreign_key "proxies", "users"
   add_foreign_key "telegrams", "users"
 end

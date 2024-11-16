@@ -8,7 +8,7 @@ class UsersController < ApplicationController
       @users = User.search(params[:query])
     end
 
-    if params[:sort] == 'notes'
+    if params[:sort] == "notes"
       @users = @users.order(:notes).reverse
     end
   end
